@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "0.1",
+  "book": "PSA",
+  "psalm": 1,
+  "sourceVersion": "UHB v2.1.32",
+  "psalmStatus": "not-started",
+  "lineStatuses": {},
+  "parallelGroups": [],
+  "components": [],
+  "structures": [],
+  "notes": []
+}
