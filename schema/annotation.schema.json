@@ -1,17 +1,1 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://local.example/tamil-psalms-editor/annotation.schema.json",
-  "title": "Tamil Psalms Structure & Parallelism Annotation",
-  "type": "object",
-  "required": ["schemaVersion", "book", "psalm", "parallelGroups", "components", "structures"],
-  "properties": {
-    "schemaVersion": {"const": "0.1"},
-    "book": {"const": "PSA"},
-    "psalm": {"type": "integer", "minimum": 1, "maximum": 150},
-    "psalmStatus": {"enum": ["not-started", "draft", "annotated", "reviewed", "approved", "disputed"]},
-    "lineStatuses": {"type": "object", "additionalProperties": {"enum": ["not-started", "draft", "annotated", "reviewed", "approved", "disputed"]}},
-    "parallelGroups": {"type": "array", "items": {"type": "object", "required": ["id", "lineIds", "type", "confidence", "status"], "properties": {"id":{"type":"string"},"lineIds":{"type":"array","minItems":2,"items":{"type":"string"}},"type":{"type":"string"},"confidence":{"enum":["High","Medium","Low"]},"note":{"type":"string"},"status":{"type":"string"}}}},
-    "components": {"type": "array", "items": {"type": "object", "required": ["id", "label", "hebrewTokenIds", "tamilTokenIds", "status"], "properties": {"id":{"type":"string"},"label":{"type":"string"},"parallelGroupId":{"type":["string","null"]},"hebrewTokenIds":{"type":"array","items":{"type":"string"}},"tamilTokenIds":{"type":"array","items":{"type":"string"}},"note":{"type":"string"},"status":{"type":"string"}}}},
-    "structures": {"type": "array", "items": {"type": "object", "required": ["id", "label", "title", "type", "startLineId", "endLineId", "status"], "properties": {"id":{"type":"string"},"label":{"type":"string"},"title":{"type":"string"},"type":{"type":"string"},"startLineId":{"type":"string"},"endLineId":{"type":"string"},"parentId":{"type":["string","null"]},"note":{"type":"string"},"status":{"type":"string"}}}}
-  }
-}
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Tamil Psalms Editor annotations v0.2","type":"object","required":["schemaVersion","book","psalm","segments","parallelGroups","components","structures"],"properties":{"schemaVersion":{"const":"0.2.0"},"book":{"const":"PSA"},"psalm":{"const":1},"psalmStatus":{"enum":["not-started","in-progress","disputed","approved"]},"segments":{"type":"array"},"parallelGroups":{"type":"array"},"components":{"type":"array"},"structures":{"type":"array"},"notes":{"type":"array"},"migration":{"type":["object","null"]}}}

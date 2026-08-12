@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "0.1.1",
+  "book": "PSA",
+  "psalm": 1,
+  "sourceVersion": "UHB v2.1.32",
+  "psalmStatus": "not-started",
+  "lineStatuses": {
+    "PSA.1.1.L1": "approved",
+    "PSA.1.1.L2": "approved",
+    "PSA.1.1.L3": "approved",
+    "PSA.1.2.L1": "approved",
+    "PSA.1.2.L2": "approved",
+    "PSA.1.3.L1": "approved",
+    "PSA.1.3.L2": "approved",
+    "PSA.1.3.L3": "approved",
+    "PSA.1.3.L4": "approved",
+    "PSA.1.4.L1": "approved",
+    "PSA.1.4.L2": "approved",
+    "PSA.1.6.L2": "approved",
+    "PSA.1.6.L1": "approved"
+  },
+  "parallelGroups": [
+    {
+      "id": "P001",
+      "lineIds": [
+        "PSA.1.1.L1",
+        "PSA.1.1.L2",
+        "PSA.1.1.L3",
+        "PSA.1.6.L2"
+      ],
+      "type": "Synonymous",
+      "confidence": "High",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:35:09.137Z"
+    },
+    {
+      "id": "P002",
+      "lineIds": [
+        "PSA.1.2.L1",
+        "PSA.1.2.L2"
+      ],
+      "type": "Synonymous",
+      "confidence": "High",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:35:44.965Z"
+    },
+    {
+      "id": "P003",
+      "lineIds": [
+        "PSA.1.3.L1",
+        "PSA.1.3.L2",
+        "PSA.1.3.L3",
+        "PSA.1.3.L4"
+      ],
+      "type": "Complementary / Synthetic",
+      "confidence": "High",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:37:06.645Z"
+    },
+    {
+      "id": "P004",
+      "lineIds": [
+        "PSA.1.4.L1",
+        "PSA.1.4.L2"
+      ],
+      "type": "Complementary / Synthetic",
+      "confidence": "High",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:37:11.806Z"
+    },
+    {
+      "id": "P005",
+      "lineIds": [
+        "PSA.1.6.L1",
+        "PSA.1.6.L2"
+      ],
+      "type": "Antithetic",
+      "confidence": "High",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:37:33.949Z"
+    }
+  ],
+  "components": [
+    {
+      "id": "C001",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-1",
+        "h-1-1-2",
+        "h-1-1-3",
+        "h-1-1-5",
+        "h-1-1-4"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-1",
+        "t-1-1-2",
+        "t-1-1-5"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:03:42.400Z"
+    },
+    {
+      "id": "C002",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-1",
+        "h-1-1-2",
+        "h-1-1-3",
+        "h-1-1-4",
+        "h-1-1-5"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-1",
+        "t-1-1-2",
+        "t-1-1-5"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:05:10.736Z"
+    },
+    {
+      "id": "C003",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-6",
+        "h-1-1-7"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-3",
+        "t-1-1-4"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:05:51.676Z"
+    },
+    {
+      "id": "C004",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-11",
+        "h-1-1-10"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-8"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:07:32.020Z"
+    },
+    {
+      "id": "C005",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-8",
+        "h-1-1-9"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-6",
+        "t-1-1-7"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:07:54.945Z"
+    },
+    {
+      "id": "C006",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-12"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-10"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:08:52.163Z"
+    },
+    {
+      "id": "C007",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-12"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-10"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:09:34.144Z"
+    },
+    {
+      "id": "C008",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-1-13",
+        "h-1-1-14",
+        "h-1-1-15"
+      ],
+      "tamilTokenIds": [
+        "t-1-1-9",
+        "t-1-1-11",
+        "t-1-1-12"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:10:17.012Z"
+    },
+    {
+      "id": "C009",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-2-1",
+        "h-1-2-2",
+        "h-1-2-3",
+        "h-1-2-4",
+        "h-1-2-5"
+      ],
+      "tamilTokenIds": [
+        "t-1-2-1",
+        "t-1-2-2",
+        "t-1-2-3"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:12:15.380Z"
+    },
+    {
+      "id": "C010",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-2-6",
+        "h-1-2-7",
+        "h-1-2-8",
+        "h-1-2-9"
+      ],
+      "tamilTokenIds": [
+        "t-1-2-4",
+        "t-1-2-5",
+        "t-1-2-6",
+        "t-1-2-7",
+        "t-1-2-10",
+        "t-1-2-9",
+        "t-1-2-8"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:12:33.528Z"
+    },
+    {
+      "id": "C011",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-3-1",
+        "h-1-3-2",
+        "h-1-3-3",
+        "h-1-3-4",
+        "h-1-3-5",
+        "h-1-3-6"
+      ],
+      "tamilTokenIds": [
+        "t-1-3-1",
+        "t-1-3-2",
+        "t-1-3-3",
+        "t-1-3-4"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:13:46.316Z"
+    },
+    {
+      "id": "C012",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-3-8",
+        "h-1-3-9",
+        "h-1-3-10"
+      ],
+      "tamilTokenIds": [
+        "t-1-3-5",
+        "t-1-3-6",
+        "t-1-3-7",
+        "t-1-3-8",
+        "t-1-3-9"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:15:54.632Z"
+    },
+    {
+      "id": "C013",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-3-12",
+        "h-1-3-11",
+        "h-1-3-13"
+      ],
+      "tamilTokenIds": [
+        "t-1-3-10",
+        "t-1-3-11",
+        "t-1-3-12",
+        "t-1-3-13",
+        "t-1-3-14"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:17:30.192Z"
+    },
+    {
+      "id": "C014",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-3-14",
+        "h-1-3-15",
+        "h-1-3-16",
+        "h-1-3-17"
+      ],
+      "tamilTokenIds": [
+        "t-1-3-15",
+        "t-1-3-16",
+        "t-1-3-17"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:18:01.777Z"
+    },
+    {
+      "id": "C015",
+      "label": "c",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-3-14",
+        "h-1-3-15",
+        "h-1-3-16",
+        "h-1-3-17"
+      ],
+      "tamilTokenIds": [
+        "t-1-3-15",
+        "t-1-3-16",
+        "t-1-3-17"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:18:43.461Z"
+    },
+    {
+      "id": "C016",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-4-1",
+        "h-1-4-3",
+        "h-1-4-2"
+      ],
+      "tamilTokenIds": [
+        "t-1-4-1",
+        "t-1-4-2"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:20:01.520Z"
+    },
+    {
+      "id": "C017",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-4-4",
+        "h-1-4-5",
+        "h-1-4-6",
+        "h-1-4-7",
+        "h-1-4-8",
+        "h-1-4-9"
+      ],
+      "tamilTokenIds": [
+        "t-1-4-3",
+        "t-1-4-4",
+        "t-1-4-5",
+        "t-1-4-6",
+        "t-1-4-7"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:20:33.913Z"
+    },
+    {
+      "id": "C018",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-6-3",
+        "h-1-6-2"
+      ],
+      "tamilTokenIds": [
+        "t-1-6-1",
+        "t-1-6-4"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:23:55.441Z"
+    },
+    {
+      "id": "C019",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-6-4",
+        "h-1-6-5"
+      ],
+      "tamilTokenIds": [
+        "t-1-6-2",
+        "t-1-6-3"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:24:30.337Z"
+    },
+    {
+      "id": "C020",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-6-6",
+        "h-1-6-7"
+      ],
+      "tamilTokenIds": [
+        "t-1-6-5",
+        "t-1-6-6"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:24:57.024Z"
+    },
+    {
+      "id": "C021",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-6-6",
+        "h-1-6-7"
+      ],
+      "tamilTokenIds": [
+        "t-1-6-5",
+        "t-1-6-6"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:25:13.328Z"
+    },
+    {
+      "id": "C022",
+      "label": "c",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "h-1-6-8"
+      ],
+      "tamilTokenIds": [
+        "t-1-6-7"
+      ],
+      "status": "annotated",
+      "note": "",
+      "createdAt": "2026-08-09T15:25:33.057Z"
+    }
+  ],
+  "structures": [
+    {
+      "id": "S003",
+      "label": "A",
+      "title": "நீதிமான் துன்மார்கனோடு இரான்",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.1.L1",
+      "endLineId": "PSA.1.1.L3",
+      "parentId": null,
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:46:35.278Z"
+    },
+    {
+      "id": "S003",
+      "label": "B",
+      "title": "நீதிமான் வேதத்தைத் தெரிந்துகொள்வான்",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.2.L1",
+      "endLineId": "PSA.1.2.L2",
+      "parentId": null,
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:47:16.686Z"
+    },
+    {
+      "id": "S003",
+      "label": "C",
+      "title": "நீதிமான் இலை உதிராத மரத்தைப் போன்றவன்",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.3.L1",
+      "endLineId": "PSA.1.3.L4",
+      "parentId": null,
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:52:00.470Z"
+    },
+    {
+      "id": "S004",
+      "label": "C",
+      "title": "துன்மார்க்கன் காற்று விரட்டுகிற பதரைப் போன்றவன்",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.4.L1",
+      "endLineId": "PSA.1.4.L2",
+      "parentId": "S003",
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:54:12.562Z"
+    },
+    {
+      "id": "S005",
+      "label": "B",
+      "title": "துன்மார்க்கன் நீதிமானோடு நிற்பதில்லை",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.5.L1",
+      "endLineId": "PSA.1.5.L2",
+      "parentId": null,
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:56:39.962Z"
+    },
+    {
+      "id": "S006",
+      "label": "A",
+      "title": "தேவன் நீதிமானை அறிந்துகொள்கிறார்",
+      "type": "Chiasm",
+      "startLineId": "PSA.1.6.L1",
+      "endLineId": "PSA.1.6.L2",
+      "parentId": null,
+      "note": "",
+      "status": "approved",
+      "createdAt": "2026-08-09T15:58:54.054Z"
+    }
+  ],
+  "notes": [],
+  "updatedAt": "2026-08-09T15:59:24.209Z"
+}

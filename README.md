@@ -1,171 +1,46 @@
-# Psalms Editor
+# Psalms Editor — v0.2
 
-**Psalms Editor** is a local-first annotation tool for building a Hebrew-grounded structure and parallelism dataset for the **Tamil IRV Psalms**.
+Psalm 1 development build for a Hebrew-grounded Tamil IRV Psalms structure and parallelism dataset.
 
-> **Current version:** v0.1 — Psalm 1 prototype
+## v0.2 additions
 
-## Purpose
+- Hebrew-first **Segmentation** editor: assign/move UHB tokens between poetic segments without modifying Scripture.
+- Proper **parallel group** creation and an active-group workflow. New a/b/c/d/e components attach to the active group automatically.
+- **Component Manager** with Edit, Review, Approve, Reopen, Delete and revision history.
+- **Approved components remain correctable**. Editing an approved component stores its prior revision and moves the edited revision to **Needs review**.
+- Editable/reopenable parallel groups and structure units.
+- Collision-safe unique IDs for groups, components and structures.
+- v0.1.x import/migration. Duplicate legacy structure IDs are repaired without deleting content; ambiguous duplicate-ID parent references are cleared and reported.
+- **Validation** for invalid references, duplicate/conflicting components, unassigned components, segment overlap across groups, Hebrew segmentation coverage and structure-parent integrity.
+- Deleting a parallel group preserves its components as unassigned annotations instead of deleting them.
+- Psalm approval is blocked by validation errors; warnings require explicit confirmation.
 
-Psalms Editor helps Bible translators, consultants, Hebrew specialists, and reviewers analyze how Hebrew poetic structure is represented in Tamil.
+## Read-only policy
 
-The Scripture sources remain **read-only**. Alignment, structure, notes, and review decisions are stored separately as annotation data.
+UHB v2.1.32, Tamil IRV, English and the supplied Hebrew–Tamil alignment are loaded as read-only source data. All work is saved separately as annotation JSON.
 
-### Intended users
+## Opening
 
-* Bible translators and consultants
-* Biblical Hebrew specialists
-* Tamil reviewers
-* Exegetes and researchers
+Extract the ZIP and open `index.html`. For a local server, use `run-local.bat` on Windows or `./run-local.sh` on macOS/Linux, then open `http://localhost:8765`.
 
-Users should understand basic Psalm structure, Hebrew poetry, and translation review. Biblical Hebrew knowledge is especially important for approving poetic segmentation and parallelism.
+## Migrating your Psalm 1 v0.1.1 JSON
 
-## Workflow
+Use **Import annotations** and choose your `PSA001.annotations.v0.1.1.json`. v0.2 preserves your 5 groups, 22 components and 6 structures, repairs technical ID issues, and opens a migration report. Then open **Validation**.
 
-1. Load the read-only sources:
+## Recommended workflow
 
-   * UHB v2.1.32
-   * Tamil IRV
-   * ESV
-   * Hebrew–Tamil alignment data
-2. Open a Psalm.
-3. Verify Hebrew poetic lines / cola.
-4. Review Hebrew–Tamil alignment.
-5. Create parallel groups.
-6. Mark corresponding elements (`a`, `b`, `c`, etc.).
-7. Annotate larger Psalm structure.
-8. Add translation-significance notes.
-9. Review and approve annotations.
-10. Export the dataset as JSON.
+1. Review/fix Hebrew segmentation in **Segmentation**.
+2. Select 2+ segments and create a parallel group.
+3. Activate that group in Workbench.
+4. Select corresponding Hebrew/Tamil words and assign a/b/c/d/e.
+5. Use **Components** to edit/review/approve.
+6. Build the Psalm-level outline in **Structure**.
+7. Resolve **Validation** errors/warnings before final approval/export.
 
-## Result
+## Correcting an approved component
 
-### What you can expect
+Open **Components → Edit**, correct token selection/label/group/note, and **Save changes**. The previous approved revision is preserved, and the new revision becomes **Needs review**. History can restore an earlier component revision as a new reviewable revision.
 
-Psalms Editor is designed to produce data that is:
+## Scope
 
-* Hebrew-grounded
-* Tamil-aware
-* human-reviewed
-* traceable
-* portable
-* separate from Scripture source files
-* reusable in a future Tamil Psalms Explorer
-
-### What you cannot expect
-
-Psalms Editor is not:
-
-* an automatic authority on Hebrew poetry
-* a replacement for qualified translators or consultants
-* a replacement for Paratext or translationCore
-* a Scripture editing tool
-* a guarantee that every structural interpretation is undisputed
-
-v0.1 is a **research prototype**, not a completed scholarly dataset for the entire Psalter.
-
-## Methodology
-
-The project follows a Hebrew-first approach:
-
-```text
-Hebrew source
-    ↓
-Poetic segmentation
-    ↓
-Parallelism
-    ↓
-Component correspondence
-    ↓
-Hebrew–Tamil alignment
-    ↓
-Translation significance
-```
-
-The main annotation layers are:
-
-* source text
-* alignment
-* poetic segmentation
-* parallelism
-* component correspondence
-* Psalm structure
-* translator notes
-* review and approval
-
-AI-assisted analysis may be added later, but AI suggestions should remain proposals until reviewed by a human.
-
-## Principles
-
-1. **Source integrity** — Scripture texts remain read-only.
-2. **Hebrew priority** — Hebrew is the structural anchor.
-3. **Translation sensitivity** — Tamil may legitimately restructure Hebrew expressions.
-4. **No forced 1:1 alignment** — phrase-level and many-to-many alignment are supported.
-5. **Human review** — important decisions require human approval.
-6. **Traceability** — annotations should preserve status, confidence, reviewer, and revision.
-7. **Reversibility** — annotations should be correctable.
-8. **Portable data** — JSON is the main exchange format.
-9. **Local-first** — core work can remain on the user's computer.
-
-## Run Locally
-
-### Requirements
-
-* A modern browser
-* Extracted Psalms Editor files
-
-No database server is required for v0.1.
-
-### Using Python 3
-
-From the project folder:
-
-```bash
-python -m http.server 8080
-```
-
-Then open:
-
-```text
-http://localhost:8080
-```
-
-### Using Node.js
-
-```bash
-npx serve .
-```
-
-Open the local URL shown in the terminal.
-
-Export annotation JSON regularly. Do not rely only on browser storage for long-term backup.
-
-## Deploy on Vercel
-
-> Before public deployment, confirm that you have permission to redistribute every Scripture source in the repository. Do not publicly deploy restricted resources such as the ESV unless your license permits it.
-
-### From GitHub
-
-1. Push Psalms Editor to GitHub.
-2. In Vercel choose **Add New → Project**.
-3. Import the repository.
-4. For the current static v0.1 build use:
-
-   * **Framework Preset:** Other
-   * **Build Command:** leave blank
-   * **Output Directory:** `.`
-5. Deploy.
-
-### Using Vercel CLI
-
-```bash
-npm install -g vercel
-vercel login
-vercel
-```
-
-For production:
-
-```bash
-vercel --prod
-```
-::: 
+v0.2 remains a Psalm 1 prototype. Do not scale to Psalms 2–150 until this workflow is reviewed on representative Psalms.
