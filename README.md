@@ -1,46 +1,420 @@
-# Psalms Editor — v0.2
+# Psalms Editor
 
-Psalm 1 development build for a Hebrew-grounded Tamil IRV Psalms structure and parallelism dataset.
+**Psalms Editor** is a local-first annotation application for building a Hebrew-grounded **structure and parallelism resource for the Tamil IRV Psalms**.
 
-## v0.2 additions
+The editor keeps Scripture source texts read-only and stores scholarly analysis in a separate annotation layer. The long-term goal is to create a reviewable, reusable dataset for Psalms 1–150 that can support translators, reviewers, consultants, researchers, and a future read-only Selah.
 
-- Hebrew-first **Segmentation** editor: assign/move UHB tokens between poetic segments without modifying Scripture.
-- Proper **parallel group** creation and an active-group workflow. New a/b/c/d/e components attach to the active group automatically.
-- **Component Manager** with Edit, Review, Approve, Reopen, Delete and revision history.
-- **Approved components remain correctable**. Editing an approved component stores its prior revision and moves the edited revision to **Needs review**.
-- Editable/reopenable parallel groups and structure units.
-- Collision-safe unique IDs for groups, components and structures.
-- v0.1.x import/migration. Duplicate legacy structure IDs are repaired without deleting content; ambiguous duplicate-ID parent references are cleared and reported.
-- **Validation** for invalid references, duplicate/conflicting components, unassigned components, segment overlap across groups, Hebrew segmentation coverage and structure-parent integrity.
-- Deleting a parallel group preserves its components as unassigned annotations instead of deleting them.
-- Psalm approval is blocked by validation errors; warnings require explicit confirmation.
+> **Current status:** v0.2 is a development prototype centered on Psalm 1. Its primary purpose is to establish and test the data model, annotation workflow, review model, and validation rules before scaling to the whole Psalter.
 
-## Read-only policy
+---
 
-UHB v2.1.32, Tamil IRV, English and the supplied Hebrew–Tamil alignment are loaded as read-only source data. All work is saved separately as annotation JSON.
+## Purpose
 
-## Opening
+Psalms Editor is designed to help a translation or scholarly team create and maintain structured annotations for:
 
-Extract the ZIP and open `index.html`. For a local server, use `run-local.bat` on Windows or `./run-local.sh` on macOS/Linux, then open `http://localhost:8765`.
+- Hebrew poetic-line / colon segmentation
+- Hebrew–Tamil word and phrase alignment
+- poetic parallelism groups
+- corresponding components such as `a / b / c / d / e`
+- Psalm-level literary structure
+- translator and reviewer notes
+- confidence, review, approval, correction, and revision history
+- validation of the annotation dataset before approval or publication
 
-## Migrating your Psalm 1 v0.1.1 JSON
+The application is **not a Bible-text editor**. It does not change the Hebrew, Tamil, or English Bible source text. It creates a separate scholarly layer that can be reviewed, corrected, exported, and reused.
 
-Use **Import annotations** and choose your `PSA001.annotations.v0.1.1.json`. v0.2 preserves your 5 groups, 22 components and 6 structures, repairs technical ID issues, and opens a migration report. Then open **Validation**.
+### Read-only source resources
 
-## Recommended workflow
+The project is designed around these source layers:
 
-1. Review/fix Hebrew segmentation in **Segmentation**.
-2. Select 2+ segments and create a parallel group.
-3. Activate that group in Workbench.
-4. Select corresponding Hebrew/Tamil words and assign a/b/c/d/e.
-5. Use **Components** to edit/review/approve.
-6. Build the Psalm-level outline in **Structure**.
-7. Resolve **Validation** errors/warnings before final approval/export.
+- **UHB v2.1.32** — Hebrew Psalms, including token, lemma, Strong's, and morphology information where available
+- **Tamil IRV Psalms** — target-language Scripture text
+- **English Bible** — English reference text
+- **Hebrew–Tamil alignment data** — existing alignment information that can be imported, checked, and extended
 
-## Correcting an approved component
+All annotation work belongs to the Psalms Editor dataset, not to the Scripture source files.
 
-Open **Components → Edit**, correct token selection/label/group/note, and **Save changes**. The previous approved revision is preserved, and the new revision becomes **Needs review**. History can restore an earlier component revision as a new reviewable revision.
+---
 
-## Scope
+## Philosophy
 
-v0.2 remains a Psalm 1 prototype. Do not scale to Psalms 2–150 until this workflow is reviewed on representative Psalms.
+Psalms Editor follows several core principles.
+
+### Hebrew is the structural anchor
+
+The poetic structure of the Psalm is established from the Hebrew text first. Tamil and English are then mapped to that Hebrew analysis rather than being used independently to reconstruct the original structure.
+
+### Scripture text remains immutable
+
+UHB, Tamil IRV, and the English Bible are read-only resources. Segmentation, parallelism, alignment, structure, notes, and review decisions are stored separately.
+
+### Human review remains authoritative
+
+Software and future AI assistance may propose analyses, but they should not silently determine the scholarly result. A human reviewer must be able to accept, modify, reject, dispute, or reopen an annotation.
+
+### Approval is reversible
+
+Approved annotations are not permanently locked. If an approved component, group, structure, or other annotation needs correction, the editor should preserve the earlier revision and return the changed annotation to review.
+
+### Uncertainty should be visible
+
+Poetic analysis is sometimes disputed. The dataset should preserve confidence levels, reviewer notes, alternative judgments, and unresolved questions instead of forcing false certainty.
+
+### Data should outlive the interface
+
+The annotation dataset is more important than any particular screen design. Data should remain portable, inspectable, versionable, and exportable independently of the current UI.
+
+---
+
+## Who is the end user?
+
+Psalms Editor is primarily intended for:
+
+- Tamil Bible translators
+- translation reviewers and checkers
+- Hebrew consultants
+- exegetical and translation consultants
+- Scripture-engagement or linguistic researchers working with Psalms
+- project administrators maintaining the Psalms annotation dataset
+
+It can also support developers who are building downstream tools such as a read-only **Selah**.
+
+### What are users expected to know?
+
+A normal annotation user does **not** need programming knowledge.
+
+Users should ideally be comfortable with:
+
+- Bible references and Psalm structure
+- reading Tamil
+- basic concepts of Hebrew poetry and parallelism
+- selecting words and phrases for alignment
+- distinguishing observation from interpretation
+- reviewing and documenting scholarly decisions
+
+Knowledge of Biblical Hebrew is strongly recommended for users making final segmentation, parallelism, or structural decisions. Morphology, lemma, gloss, alignment, and English Bible information are intended to assist the reviewer, not replace Hebrew competence.
+
+Repository maintainers should additionally be comfortable with Git/GitHub and basic static-web deployment.
+
+---
+
+## Workflow
+
+The recommended annotation workflow is:
+
+1. **Open the Psalm** and confirm that the Hebrew, Tamil IRV, English Bible, and available alignment data are present.
+2. **Review Hebrew segmentation** and establish the poetic cola / lines without editing the UHB source text.
+3. **Map Tamil expressions** to the relevant Hebrew units using many-to-many alignment where necessary.
+4. **Create parallel groups** from two or more poetic segments.
+5. **Classify the relationship**, for example:
+   - Synonymous
+   - Antithetic
+   - Complementary / Synthetic
+   - Climactic / Staircase
+   - Comparative / Emblematic
+   - Consequential
+   - Repetition
+   - Other
+   - Uncertain
+6. **Assign corresponding components** such as `a / b / c / d / e` to the Hebrew and Tamil expressions that correspond across the parallel lines.
+7. **Add larger literary structure**, such as sections, strophes, stanzas, refrains, inclusios, chiasms, acrostics, contrasts, or comparisons.
+8. **Add translation significance or reviewer notes** where the structure matters for Tamil translation or checking.
+9. **Review and correct annotations**. Approved annotations may be reopened when necessary.
+10. **Run validation** to identify invalid references, unattached components, duplicates, conflicts, overlap problems, incomplete segmentation, or structure issues.
+11. **Resolve errors and review warnings**.
+12. **Approve the Psalm** only after the annotation dataset is internally consistent.
+13. **Export the annotation JSON** for version control, review, research, or use in a read-only Selah.
+
+---
+
+## Result
+
+### What you can expect
+
+When a Psalm has been fully reviewed, Psalms Editor should produce a structured annotation dataset containing, as appropriate:
+
+- stable Psalm, verse, segment, token, group, component, and structure references
+- Hebrew poetic segmentation
+- Hebrew–Tamil alignment relationships
+- classified parallelism groups
+- `a / b / c / d / e` corresponding elements
+- literary structure annotations
+- translator/reviewer notes
+- confidence and review status
+- revision history for corrected annotations
+- validation results
+- portable JSON output
+
+The approved dataset can later support a read-only visual resource that displays Tamil IRV alongside Hebrew structure, parallelism, alignment, and explanatory information.
+
+### What you cannot expect
+
+Psalms Editor does **not** guarantee:
+
+- an automatic or infallible interpretation of Hebrew poetry
+- a single undisputed structure for every Psalm
+- automatic replacement of a Hebrew scholar, translator, or consultant
+- that every Hebrew word will have a one-to-one Tamil equivalent
+- that every Psalm will use the same parallelism pattern
+- that AI suggestions, if added, are correct without review
+- automatic permission to redistribute any Scripture source text
+- modification or correction of Tamil IRV, UHB, or the English Bible source files
+
+The editor records and manages scholarly judgments; it does not turn interpretive decisions into unquestionable facts.
+
+---
+
+## Methodology
+
+Psalms Editor uses a layered methodology.
+
+### 1. Source layer
+
+Keep UHB, Tamil IRV, the English Bible, and source alignment data read-only. Preserve source identity and provenance wherever possible.
+
+### 2. Segmentation layer
+
+Identify Hebrew poetic cola / lines as annotation units without changing verse numbering or Scripture text.
+
+### 3. Alignment layer
+
+Map Hebrew words or phrases to Tamil words or phrases. The model must support:
+
+- one Hebrew word → multiple Tamil words
+- multiple Hebrew words → one Tamil expression
+- phrase-to-phrase relationships
+- implicit or grammatically supplied material when it needs to be documented
+
+### 4. Parallelism layer
+
+Group related poetic segments and classify their relationship. Confidence and reviewer notes should be stored with the group.
+
+### 5. Component layer
+
+Identify corresponding semantic or grammatical elements across the parallel lines using labels such as `a`, `b`, `c`, and so on.
+
+### 6. Structure layer
+
+Describe larger literary organization separately from line-level parallelism. Structures may be nested and may include relationships such as A–B–C–C′–B′–A′.
+
+### 7. Review layer
+
+Use explicit statuses such as:
+
+- Draft
+- Annotated
+- Needs review
+- Reviewed
+- Approved
+- Disputed
+
+Previously approved work remains correctable through revision-safe editing.
+
+### 8. Validation layer
+
+Before final approval, validate internal references and look for issues such as:
+
+- duplicate IDs
+- broken token or segment references
+- components not assigned to a parallel group
+- duplicate or conflicting component annotations
+- unintended segment overlap between groups
+- incomplete Hebrew segmentation coverage
+- invalid structure parent relationships
+
+### 9. Publication layer
+
+Export approved annotation data separately from Scripture sources. A future Selah can consume the approved dataset without exposing editing functions.
+
+---
+
+## Design philosophy
+
+The software itself is developed around these engineering principles:
+
+- **Local-first:** normal annotation work should be possible without sending Scripture or annotation data to an external service.
+- **Read-only Scripture:** annotations never overwrite the source Bible files.
+- **Data-first:** the JSON annotation model is treated as a core project asset.
+- **Auditable:** important scholarly changes should have status, notes, and revision history.
+- **Reversible:** mistakes can be corrected even after approval.
+- **Incremental:** the data model is tested on representative Psalms before scaling to Psalms 1–150.
+- **Validation before approval:** internal inconsistencies should be surfaced rather than silently accepted.
+- **Language-aware:** Hebrew RTL and Tamil Unicode must be handled correctly.
+- **Human-in-the-loop:** future AI features should make proposals, not unreviewed final decisions.
+
+---
+
+## How to run locally
+
+Psalms Editor v0.2 is currently a static browser application using HTML, CSS, and JavaScript.
+
+### What do I need to preinstall?
+
+#### Required
+
+- A modern web browser such as Chrome, Edge, Firefox, or Safari
+- The extracted Psalms Editor release folder
+
+#### Recommended
+
+- **Python 3** — used by the included local-server scripts for more consistent browser behavior
+
+#### Optional for repository development
+
+- Git
+- A GitHub account
+- A code editor such as Visual Studio Code
+
+**Node.js and npm are not required to run the current v0.2 application locally.**
+
+### Option 1 — open directly
+
+1. Extract the Psalms Editor release ZIP.
+2. Open the project folder.
+3. Open `index.html` in a modern browser.
+
+For routine work, running through a local web server is recommended because browsers can apply additional restrictions to pages opened through `file://`.
+
+### Option 2 — recommended local server
+
+#### Windows
+
+Double-click:
+
+```text
+run-local.bat
+```
+
+The script starts a local Python web server. Open:
+
+```text
+http://localhost:8765
+```
+
+#### macOS / Linux
+
+From the project directory:
+
+```bash
+chmod +x run-local.sh
+./run-local.sh
+```
+
+Then open:
+
+```text
+http://localhost:8765
+```
+
+### Manual Python method
+
+From the project root:
+
+```bash
+python3 -m http.server 8765
+```
+
+On Windows, depending on your Python installation, you can also use:
+
+```powershell
+py -m http.server 8765
+```
+
+Then visit `http://localhost:8765` in your browser.
+
+---
+
+## How to deploy on Vercel
+
+The current Psalms Editor build is a static HTML/CSS/JavaScript site, so it does not require a build step on Vercel.
+
+> **Important:** Do not publish Scripture source files unless you have the right to redistribute them. This especially applies to any locally supplied English Bible or other licensed resource. For a public deployment, keep restricted Scripture resources out of the public repository or replace them with resources whose redistribution terms permit publication.
+
+### Recommended: GitHub → Vercel
+
+1. Create a GitHub repository for Psalms Editor.
+2. Put the application files in the repository. The directory deployed by Vercel should contain `index.html`, `app.js`, `styles.css`, and the required public data/assets.
+3. Commit and push the repository to GitHub.
+4. Sign in to Vercel.
+5. Choose **Add New → Project**.
+6. Connect GitHub if it is not already connected.
+7. Import the Psalms Editor repository.
+8. Set **Framework Preset** to **Other** for the current static build.
+9. If the app is inside a subdirectory, set that directory as the **Root Directory**. Otherwise leave the repository root selected.
+10. No build command is required for the current static application.
+11. Deploy the project.
+
+After the Git repository is connected, Vercel can automatically create new deployments when changes are pushed to the connected repository.
+
+Official Vercel documentation:
+
+- [Deploying to Vercel](https://vercel.com/docs/deployments)
+- [Deploying Git repositories](https://vercel.com/docs/git)
+- [Configuring a build](https://vercel.com/docs/builds/configure-a-build)
+
+### Public-deployment recommendation
+
+For a public-facing deployment, consider separating the project into two layers:
+
+```text
+Psalms Editor
+├── private/local editor
+│   ├── licensed Scripture sources
+│   ├── draft annotations
+│   └── reviewer workflow
+│
+└── public Selah / approved-data build
+    ├── redistribution-safe text/data
+    └── approved annotation JSON
+```
+
+The Editor contains the working scholarly environment. The public deployment should expose only data and Scripture content that are appropriate for publication.
+
+---
+
+## Repository structure
+
+A typical repository may look like this:
+
+```text
+psalms-editor/
+├── index.html
+├── app.js
+├── styles.css
+├── data/
+├── schema/
+│   └── annotation.schema.json
+├── sample/
+├── tests/
+├── tools/
+├── run-local.bat
+├── run-local.sh
+├── TEST-REPORT.md
+├── RELEASE-NOTES.md
+└── README.md
+```
+
+---
+
+## Data and distribution
+
+The Psalms Editor source code, annotation data, and Scripture source texts should be treated as separate concerns.
+
+Before publishing or redistributing a repository, verify the license and redistribution permissions of every included Bible text, lexical resource, alignment dataset, and other third-party resource.
+
+The safest public-release model is to publish the editor code and permitted annotation data while keeping restricted source resources local or separately supplied by authorized users.
+
+---
+
+## Project direction
+
+The long-term objective is to build a reviewed Hebrew-grounded dataset for the entire Psalter and use that dataset to support a **Selah** where translators and readers can examine:
+
+- Psalm structure
+- poetic parallelism
+- corresponding components
+- Hebrew–Tamil relationships
+- relevant linguistic information
+- translation significance
+
+The Editor creates and reviews the data. The Selah presents approved data without changing it.
