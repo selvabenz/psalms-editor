@@ -17,6 +17,10 @@ const store=new Map();const localStorage={getItem:k=>store.has(k)?store.get(k):n
 global.window=global;global.location={search:'?test=1'};global.document=document;global.localStorage=localStorage;global.navigator={clipboard:{writeText:async()=>{}}};global.confirm=()=>true;global.CSS={escape:s=>s};global.Blob=class{};global.URL={createObjectURL:()=>'',revokeObjectURL:()=>{}};
 global.FileReader=class{readAsText(file){this.result=file.content;if(this.onload)this.onload()}};
 vm.runInThisContext(fs.readFileSync(path.join(ROOT,'data/tahot-psalms.js'),'utf8'),{filename:'tahot-psalms.js'});
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'data/rose-cookies-schema.js'),'utf8'),{filename:'rose-cookies-schema.js'});
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'vendor/zip-reader.js'),'utf8'),{filename:'zip-reader.js'});
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'resource-db.js'),'utf8'),{filename:'resource-db.js'});
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'rose-cookies-manager.js'),'utf8'),{filename:'rose-cookies-manager.js'});
 vm.runInThisContext(fs.readFileSync(path.join(ROOT,'source-manager.js'),'utf8'),{filename:'source-manager.js'});
 vm.runInThisContext(fs.readFileSync(path.join(ROOT,'data/psalm1.js'),'utf8'),{filename:'psalm1.js'});
 let error=null;try{vm.runInThisContext(fs.readFileSync(path.join(ROOT,'app.js'),'utf8'),{filename:'app.js'})}catch(e){error=e}
@@ -26,6 +30,7 @@ ck(elements.progressText.textContent!=='Loading…','startup render updates prog
 ck(elements.verseList.children.length===6,'startup renders six verse cards');
 ck(elements.psalmSelect.options.length===150,'Psalm selector provides Psalms 1–150');
 ck(elements.jsonPreview.textContent.includes('"schemaVersion": "0.4.0"'),'startup dataset is v0.4.0');
+ck(elements.roseLayerControls.classList.s.has('hidden'),'Rose Cookies layer controls stay hidden until a package is loaded');
 // Exercise the actual v0.1.1 import/migration path via the bound file input.
 const sample=fs.readFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.1.1.migration-sample.json'),'utf8');
 try{elements.importInput.onchange({target:{files:[{content:sample}],value:''}})}catch(e){console.error('IMPORT ERROR',e);process.exit(1)}

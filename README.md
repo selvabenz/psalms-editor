@@ -4,7 +4,7 @@
 
 The editor keeps Scripture source texts read-only and stores scholarly analysis in a separate annotation layer. The long-term goal is to create a reviewable, reusable dataset for Psalms 1–150 that can support translators, reviewers, consultants, researchers, and a future read-only Selah.
 
-> **Current status:** v0.4 accepts annotation files for Psalms 1–150, bundles read-only TAHOT Hebrew for the whole Psalter, and accepts additional read-only languages through USFM/SFM import.
+> **Current status:** v0.5 retains schema v0.4 annotations for Psalms 1–150, bundles read-only TAHOT Hebrew, accepts ordinary USFM/SFM sources, and imports Rose Cookies 0.1 packages containing one Tamil Scripture stream with coordinated Tags, Word Alignment, and Kichadi layers.
 
 ---
 
@@ -29,6 +29,7 @@ The project is designed around these source layers:
 
 - **TAHOT** — bundled read-only Hebrew Psalms from STEP Bible, including token IDs, lemma, Strong's, morphology, gloss, text-type, and variant metadata
 - **USFM/SFM Scripture sources** — user-imported read-only content in Tamil, English, or any other language
+- **Rose Cookies** — one immutable Tamil IRV token stream with Tagged metadata, complete Hebrew↔Tamil Word Alignment units, and Kichadi semantic units
 - **Hebrew–Tamil alignment data** — existing alignment information that can be imported, checked, and extended
 
 All annotation work belongs to the Psalms Editor dataset, not to the Scripture source files.
@@ -45,7 +46,7 @@ The poetic structure of the Psalm is established from the Hebrew text first. Tam
 
 ### Scripture text remains immutable
 
-Bundled TAHOT Hebrew and every imported USFM/SFM source are read-only resources. Segmentation, parallelism, alignment, structure, notes, and review decisions are stored separately.
+Bundled TAHOT Hebrew, imported USFM/SFM sources, and Rose Cookies Scripture/layers are read-only resources. Segmentation, parallelism, structure, notes, and human Kichadi review overlays are stored separately.
 
 ### Human review remains authoritative
 
@@ -127,6 +128,21 @@ The recommended annotation workflow is:
 Use **Import annotations** to select one or multiple schema v0.4 JSON files for Psalms 1–150. Each Psalm is kept in a separate local workspace and can be reopened from the Psalm selector. When a matching Scripture source bundle is unavailable, the editor shows annotation token references and any Tamil/English projection text supplied in the file.
 
 Use **Add USFM/SFM** to add a read-only Psalms translation in any language. Supply a language code, name, source label, text direction, and one or more Psalms USFM/SFM files. The importer reads `\id PSA`, `\c`, `\v`, poetry and paragraph continuation markers, Psalm titles, and character styles while removing notes and cross-references from displayed Scripture text. Imported languages are stored separately from annotation JSON and can be removed from Source information without changing annotations.
+
+### Rose Cookies
+
+Open **Source information → Import Rose Cookies** and choose a `.rose.zip` package. The import is transactional: the manifest schema, required files, safe ZIP paths, byte sizes, SHA-256 hashes, BCVWP identities, TAHOT/Tamil references, Kichadi realization rules, and any already-loaded Tamil IRV text are validated before persistent state changes.
+
+After import, use the compact controls above the Workbench:
+
+- **Text** shows the one immutable Tamil Scripture stream.
+- **Tags** exposes lexical/source metadata when a Tamil token is selected.
+- **Word Align** highlights every member of the selected complete alignment unit.
+- **Kichadi** highlights semantic relationships, preserves split realizations, identifies support words, and provides a separate revision-safe human review overlay.
+
+Word Align and Kichadi can be enabled together. Resources are stored in IndexedDB and only the active Psalm is loaded into memory. Source information can export the preserved translationCore aligned USFM, preserved semantic USFM, or a rebuilt Rose Cookies package with recalculated integrity hashes. Reviewed exports retain the imported package hash and add review provenance.
+
+The project-owned interchange specification is [docs/ROSE-COOKIES-FORMAT.md](docs/ROSE-COOKIES-FORMAT.md). A Rose Cookies package does not by itself grant Scripture redistribution rights.
 
 ---
 
@@ -249,7 +265,7 @@ The software itself is developed around these engineering principles:
 
 ## How to run locally
 
-Psalms Editor v0.4 is currently a static browser application using HTML, CSS, and JavaScript.
+Psalms Editor v0.5 is a static browser application using HTML, CSS, and JavaScript.
 
 ### What do I need to preinstall?
 
@@ -268,7 +284,7 @@ Psalms Editor v0.4 is currently a static browser application using HTML, CSS, an
 - A GitHub account
 - A code editor such as Visual Studio Code
 
-**Node.js and npm are not required to run the current v0.4 application locally.**
+**Node.js and npm are not required to run the v0.5 application locally.** ZIP and SHA-256 support are bundled or supplied by the browser; no CDN is used at runtime.
 
 ### Option 1 — open directly
 
@@ -384,9 +400,17 @@ psalms-editor/
 ├── index.html
 ├── app.js
 ├── styles.css
+├── resource-db.js
+├── rose-cookies-manager.js
+├── source-manager.js
+├── vendor/
+│   └── zip-reader.js
 ├── data/
+├── docs/
+│   └── ROSE-COOKIES-FORMAT.md
 ├── schema/
-│   └── annotation.schema.json
+│   ├── annotation.schema.json
+│   └── rose-cookies.schema.json
 ├── sample/
 ├── tests/
 ├── tools/

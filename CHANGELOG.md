@@ -1,4 +1,16 @@
 # Changelog
+## 0.5.0 — 2026-09-18
+- Added Rose Cookies (`rose-cookies` v0.1.0) import and export without changing annotation schema v0.4.
+- Added locally bundled ZIP reading/writing, manifest-schema validation, ZIP path safety, byte-size checks, and SHA-256 integrity verification.
+- Added transactional IndexedDB persistence with active-Psalm indexes for Scripture tokens, Word Alignment, Kichadi units, support words, compatibility files, and review overlays.
+- Added one immutable Tamil IRV display with `Text | Tags | Word Align | Kichadi` controls.
+- Preserved complete one-to-many, many-to-one, many-to-many, discontiguous, split, implicit, and not-located relationships.
+- Added revision-safe Kichadi human review without mutating imported semantic resources or auto-approving AI proposals.
+- Added byte-identical translationCore aligned-USFM and semantic-USFM compatibility exports while unchanged.
+- Added reviewed derivative export with recalculated integrity metadata and source-package provenance.
+- Added token-level conflict reporting when a loaded Tamil IRV source differs from incoming Rose Cookies Scripture.
+- Preserved schema v0.4 annotations, earlier migrations, TAHOT, ordinary USFM/SFM, local-first operation, and all existing workflows.
+
 ## 0.4.0 — 2026-09-18
 - Added schema v0.4 support for annotation files from Psalms 1–150.
 - Added separate local storage and selection for each Psalm.
