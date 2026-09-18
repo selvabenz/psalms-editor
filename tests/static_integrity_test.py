@@ -30,6 +30,8 @@ version=json.loads((ROOT/'VERSION.json').read_text(encoding='utf8'));ck(version[
 rose_schema=json.loads((ROOT/'schema/rose-cookies.schema.json').read_text(encoding='utf8'));ck(rose_schema['properties']['format']['const']=='rose-cookies','bundled Rose Cookies manifest schema')
 ck('rose-cookies-manager.js' in html and 'resource-db.js' in html and 'vendor/zip-reader.js' in html,'Rose Cookies runtime modules are bundled locally')
 ck((ROOT/'docs/ROSE-COOKIES-FORMAT.md').exists(),'Rose Cookies project specification is documented')
+ck('id="roseWordToggle" type="checkbox" checked' in html,'Word Alignment is enabled by default when Rose Cookies is available')
+ck('alignment-phrase' in js and 'roseSourcePhrase' in js and 'roseTargetPhrase' in js,'alignment inspector renders grouped Hebrew and Tamil phrases')
 ck(schema['$defs']['component']['allOf'][1]['properties']['label']['enum']==list('abcdefghi'),'v0.4 component labels')
 ck('STAIRCASE' in schema['$defs']['parallelismType']['enum'] and 'JANUS' in schema['$defs']['parallelismType']['enum'],'v0.4 parallelism types')
 sample=json.loads((ROOT/'sample/PSA001.annotations.v0.1.1.migration-sample.json').read_text(encoding='utf8'))

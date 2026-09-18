@@ -46,7 +46,7 @@ node tests/source_manager_test.js
 
 ### Rose Cookies reference-package suite
 
-The actual `19PSAIRVTam-rose-cookies.rose.zip` package passes 27 end-to-end assertions:
+The actual `19PSAIRVTam-rose-cookies.rose.zip` package passes 28 end-to-end assertions:
 
 - `rose-cookies` v0.1.0 manifest recognition and bundled-schema validation
 - 150 Psalms, 25,994 Tamil tokens, 709 verse-000 title tokens, 23,834 tagged tokens, and 2,160 additions/unlinked tokens
@@ -54,6 +54,7 @@ The actual `19PSAIRVTam-rose-cookies.rose.zip` package passes 27 end-to-end asse
 - 17,284 Kichadi units, 17,339 markers, 16,095 realized markers, 1,161 implicit markers, 83 not-located markers, and 2,149 support words
 - split realizations remain separate; implicit/not-located units receive no fabricated targets
 - active-Psalm queries load one Tamil token stream without loading the whole Psalter into the UI
+- a selected Psalm 2 Hebrew token resolves and displays its complete two-position Tamil alignment unit
 - aligned and semantic compatibility USFM files round-trip byte-identically
 - IndexedDB-compatible persistence survives manager restart
 - approved review edits preserve a revision and return to `NEEDS_DISCUSSION`

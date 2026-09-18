@@ -9,6 +9,8 @@
 - Added byte-identical translationCore aligned-USFM and semantic-USFM compatibility exports while unchanged.
 - Added reviewed derivative export with recalculated integrity metadata and source-package provenance.
 - Added token-level conflict reporting when a loaded Tamil IRV source differs from incoming Rose Cookies Scripture.
+- Enabled Word Alignment by default and separated relationship inspection from annotation-token selection.
+- Added grouped Hebrew↔Tamil phrase visualization with stable references in the inspector.
 - Preserved schema v0.4 annotations, earlier migrations, TAHOT, ordinary USFM/SFM, local-first operation, and all existing workflows.
 
 ## 0.4.0 — 2026-09-18
