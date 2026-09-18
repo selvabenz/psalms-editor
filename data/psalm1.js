@@ -2,7 +2,7 @@ window.PSALM_DATA = {
   "meta": {
     "book": "PSA",
     "psalm": 1,
-    "version": "0.3.0",
+    "version": "0.4.0",
     "sourcePolicy": "read-only",
     "sources": {
       "tamil": {

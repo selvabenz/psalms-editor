@@ -4,7 +4,7 @@
 
 The editor keeps Scripture source texts read-only and stores scholarly analysis in a separate annotation layer. The long-term goal is to create a reviewable, reusable dataset for Psalms 1–150 that can support translators, reviewers, consultants, researchers, and a future read-only Selah.
 
-> **Current status:** v0.3 is a development prototype centered on Psalm 1. Its primary purpose is to establish and test the unified Hebrew-first data model, annotation workflow, review model, and validation rules before scaling to the whole Psalter.
+> **Current status:** v0.4 accepts annotation files for Psalms 1–150. Psalm 1 includes bundled read-only Scripture sources; other Psalms can be reviewed from their annotation token references and supplied projection text until matching source bundles are added.
 
 ---
 
@@ -124,6 +124,8 @@ The recommended annotation workflow is:
 11. **Resolve errors and review warnings**.
 12. **Approve the Psalm** only after the annotation dataset is internally consistent.
 13. **Export the annotation JSON** for version control, review, research, or use in a read-only Selah.
+
+Use **Import annotations** to select one or multiple schema v0.4 JSON files for Psalms 1–150. Each Psalm is kept in a separate local workspace and can be reopened from the Psalm selector. When a matching Scripture source bundle is unavailable, the editor shows annotation token references and any Tamil/English projection text supplied in the file.
 
 ---
 
@@ -246,7 +248,7 @@ The software itself is developed around these engineering principles:
 
 ## How to run locally
 
-Psalms Editor v0.3 is currently a static browser application using HTML, CSS, and JavaScript.
+Psalms Editor v0.4 is currently a static browser application using HTML, CSS, and JavaScript.
 
 ### What do I need to preinstall?
 
@@ -265,7 +267,7 @@ Psalms Editor v0.3 is currently a static browser application using HTML, CSS, an
 - A GitHub account
 - A code editor such as Visual Studio Code
 
-**Node.js and npm are not required to run the current v0.3 application locally.**
+**Node.js and npm are not required to run the current v0.4 application locally.**
 
 ### Option 1 — open directly
 

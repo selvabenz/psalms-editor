@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bridgeconn.com/selah/annotation.v0.3.schema.json",
-  "title": "Selah / Psalms Editor annotation file — v0.3 (unified)",
-  "description": "One file per psalm. Hebrew-first: analytical records are anchored on Hebrew token IDs; Tamil and English are projections. Supersedes v0.2.",
+  "$id": "https://bridgeconn.com/selah/annotation.v0.4.schema.json",
+  "title": "Selah / Psalms Editor annotation file — v0.4 (whole Psalter)",
+  "description": "One file per psalm for Psalms 1–150. Hebrew-first analytical records are anchored on Hebrew token IDs; Tamil and English are projections. Supersedes v0.3.",
   "type": "object",
   "required": ["schemaVersion", "book", "psalm", "revision", "psalmStatus", "segments", "parallelGroups", "components", "structures", "notes", "validation"],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "const": "0.3.0" },
+    "schemaVersion": { "const": "0.4.0" },
     "book": { "const": "PSA" },
     "psalm": { "type": "integer", "minimum": 1, "maximum": 150 },
     "revision": { "type": "object", "required": ["hebrew", "tamil", "english", "analysisRunId"], "properties": {
@@ -17,11 +17,27 @@
       "analysisRunId": { "type": "string" }
     } },
     "psalmStatus": { "enum": ["not-started", "in-progress", "disputed", "approved"] },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "completion": { "type": "string" },
+    "analysisMode": { "type": "string" },
+    "rolloutMethod": { "type": "string" },
+    "sourceEdition": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sha256": { "type": "string" },
+        "retrieved": { "type": "string" },
+        "source": { "type": "string" },
+        "policy": { "type": "string" }
+      }
+    },
     "segments": { "type": "array", "items": { "$ref": "#/$defs/segment" } },
     "parallelGroups": { "type": "array", "items": { "$ref": "#/$defs/parallelGroup" } },
     "components": { "type": "array", "items": { "$ref": "#/$defs/component" } },
     "structures": { "type": "array", "items": { "$ref": "#/$defs/structure" } },
     "notes": { "type": "array", "items": { "$ref": "#/$defs/note" } },
+    "verseAnalyses": { "type": "array", "items": { "$ref": "#/$defs/verseAnalysis" } },
     "validation": { "$ref": "#/$defs/validation" },
     "migration": { "type": ["object", "null"], "properties": {
       "fromVersion": { "type": "string" }, "importedAt": { "type": "string" }, "sourceSha256": { "type": "string" },
@@ -47,6 +63,7 @@
     "provenance": { "type": "object", "required": ["origin"], "properties": {
       "origin": { "enum": ["human", "machine", "migration", "documented-alternative", "ai-literature-synthesis", "ai-original-analysis"] },
       "method": { "type": "string" },
+      "sources": { "type": "array", "items": { "type": "string" } },
       "evidence": { "type": "array", "items": { "type": "object", "required": ["kind", "text"], "properties": { "kind": { "type": "string" }, "text": { "type": "string" }, "tokenIds": { "type": "array", "items": { "type": "string" } }, "source": { "type": "string" } } } },
       "sourceReference": { "type": "string" }
     } },
@@ -79,6 +96,17 @@
     "note": { "allOf": [{ "$ref": "#/$defs/recordBase" }, { "type": "object", "required": ["id", "kind", "targetIds", "text"], "properties": {
       "id": { "$ref": "#/$defs/noteId" }, "kind": { "enum": ["scholarly", "structure", "translation-significance", "tamil-observation", "reviewer", "source-reference", "migration"] }, "targetIds": { "type": "array", "items": { "type": "string" } }, "text": { "type": "string" }
     } }] },
+    "verseAnalysis": {
+      "type": "object",
+      "required": ["verse", "decision", "explanation", "segmentIds", "status"],
+      "properties": {
+        "verse": { "type": "integer", "minimum": 1 },
+        "decision": { "type": "string" },
+        "explanation": { "type": "string" },
+        "segmentIds": { "type": "array", "items": { "$ref": "#/$defs/segmentId" } },
+        "status": { "$ref": "#/$defs/reviewStatus" }
+      }
+    },
     "validation": { "type": "object", "required": ["runAt", "issues"], "properties": {
       "runAt": { "type": "string" }, "issues": { "type": "array", "items": { "type": "object", "required": ["code", "severity", "entityType", "entityId", "message"], "properties": {
         "code": { "enum": ["SEGMENT_TOKEN_UNCOVERED", "SEGMENT_TOKEN_DUPLICATE", "SEGMENT_INVALID_TOKEN", "SEGMENT_ACCENT_MISMATCH", "GROUP_LINE_IN_MULTIPLE_GROUPS", "GROUP_SPANS_VERSES", "GROUP_INCOMPLETE", "COMPONENT_UNATTACHED", "COMPONENT_DUPLICATE", "COMPONENT_CONFLICT", "COMPONENT_INVALID_TOKEN", "COMPONENT_OUTSIDE_GROUP_LINES", "STRUCTURE_INVALID_RANGE", "STRUCTURE_ORPHAN_CHILD", "STRUCTURE_CHIASM_WITHOUT_PARENT", "STRUCTURE_CORRESPONDENCE_ASYMMETRIC", "STATUS_STALE_APPROVAL", "ID_DUPLICATE", "SOURCE_MISMATCH"] },

@@ -1,4 +1,10 @@
 # Changelog
+## 0.4.0 — 2026-09-18
+- Added schema v0.4 support for annotation files from Psalms 1–150.
+- Added separate local storage and selection for each Psalm.
+- Added multi-file annotation import and Psalm-aware export names.
+- Added annotation-only review views when Scripture source text is not bundled.
+
 ## 0.3.0 — 2026-09-18
 - Adopted the unified v0.3 annotation schema and canonical token IDs.
 - Added source revision metadata, provenance, projections, PASA review states, and schema-shaped validation output.

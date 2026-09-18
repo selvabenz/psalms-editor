@@ -22,14 +22,14 @@ if(error){console.error('STARTUP ERROR',error);process.exit(1)}
 const checks=[];function ck(x,m){checks.push([!!x,m]);if(!x)console.error('FAIL',m)}
 ck(elements.progressText.textContent!=='Loading…','startup render updates progress');
 ck(elements.verseList.children.length===6,'startup renders six verse cards');
-ck(elements.jsonPreview.textContent.includes('"schemaVersion": "0.3.0"'),'startup dataset is v0.3.0');
+ck(elements.psalmSelect.options.length===150,'Psalm selector provides Psalms 1–150');
+ck(elements.jsonPreview.textContent.includes('"schemaVersion": "0.4.0"'),'startup dataset is v0.4.0');
 // Exercise the actual v0.1.1 import/migration path via the bound file input.
 const sample=fs.readFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.1.1.migration-sample.json'),'utf8');
 try{elements.importInput.onchange({target:{files:[{content:sample}],value:''}})}catch(e){console.error('IMPORT ERROR',e);process.exit(1)}
-const saved=JSON.parse(store.get('tamil-psalms-editor-v0.3-psalm1'));
-fs.writeFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.3.migrated-preview.json'),JSON.stringify(saved,null,2));
-ck(saved.schemaVersion==='0.3.0','import migrates schema to v0.3.0');
-ck(saved.revision?.analysisRunId&&saved.validation?.issues,'v0.3 revision and validation metadata are present');
+const saved=JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm1'));
+ck(saved.schemaVersion==='0.4.0','import migrates schema to v0.4.0');
+ck(saved.revision?.analysisRunId&&saved.validation?.issues,'v0.4 revision and validation metadata are present');
 ck(saved.segments.every(s=>s.hebrewTokenIds.every(id=>/^PSA\.1\.(?:front|\d+)\.H\d{3}$/.test(id))),'Hebrew token IDs are canonical');
 ck(saved.parallelGroups.length===5,'import preserves 5 parallel groups');
 ck(saved.components.length===22,'import preserves 22 components');
@@ -82,12 +82,38 @@ api.assignSegmentToken('hebrew','PSA.1.3.L1','h-1-3-1');
 st=api.getState();const owners=st.segments.filter(s=>s.hebrewTokenIds.includes('PSA.1.3.H001')).map(s=>s.id);
 ck(owners.length===1&&owners[0]==='PSA.1.3.L1','segmentation assignment moves a Hebrew token to one segment');
 
-// Exercise the explicit v0.2 -> v0.3 compatibility path as well.
+// Exercise the explicit v0.2 -> v0.4 compatibility path as well.
 const v02=fs.readFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.2.migrated-preview.json'),'utf8');
 try{elements.importInput.onchange({target:{files:[{content:v02}],value:''}})}catch(e){console.error('V0.2 IMPORT ERROR',e);process.exit(1)}
 st=api.getState();
-ck(st.schemaVersion==='0.3.0'&&st.migration?.fromVersion==='0.2.0','v0.2 imports migrate to v0.3');
-ck(st.segments.every(s=>s.status&&s.provenance&&s.tamil&&s.unitType),'v0.2 segment records gain v0.3 base and projection fields');
+ck(st.schemaVersion==='0.4.0'&&st.migration?.fromVersion==='0.2.0','v0.2 imports migrate to v0.4');
+ck(st.segments.every(s=>s.status&&s.provenance&&s.tamil&&s.unitType),'v0.2 segment records gain v0.4 base and projection fields');
 ck(st.components.every(c=>c.hebrewTokenIds.every(id=>id.startsWith('PSA.1.'))),'v0.2 component token IDs migrate to canonical IDs');
+
+// Import a current-schema annotation file for a Psalm without a bundled source text.
+const at='2026-09-18T00:00:00.000Z',base={status:'AI_PROPOSED',provenance:{origin:'ai-original-analysis',method:'test'},revision:1,revisions:[],createdAt:at,updatedAt:at};
+const psalm2={schemaVersion:'0.4.0',book:'PSA',psalm:2,revision:{hebrew:{version:'TAHOT-test',archiveSha256:'h'},tamil:{label:'Tamil test',sha256:'t'},english:{label:'English test',sha256:'e'},analysisRunId:'psalm-2-test'},psalmStatus:'in-progress',title:'Psalm 2 test',segments:[{...base,id:'PSA.2.1.L1',verse:'1',lineIndex:1,unitType:'colon',hebrewTokenIds:['PSA.2.1.H001']},{...base,id:'PSA.2.1.L2',verse:'1',lineIndex:2,unitType:'colon',hebrewTokenIds:['PSA.2.1.H002']}],parallelGroups:[{...base,id:'P001',lineIds:['PSA.2.1.L1','PSA.2.1.L2'],type:'SYNTHETIC'}],components:[{...base,id:'C001',label:'a',parallelGroupId:'P001',hebrewTokenIds:['PSA.2.1.H001'],tamil:{tokenIds:['PSA.2.1.T001'],text:'Tamil projection',method:'alignment-projection',status:'AI_PROPOSED',coverage:1}}],structures:[{...base,id:'S001',type:'SECTION',startLineId:'PSA.2.1.L1',endLineId:'PSA.2.1.L2',parentId:null}],notes:[],verseAnalyses:[],validation:{runAt:at,issues:[]},updatedAt:at};
+try{elements.importInput.onchange({target:{files:[{content:JSON.stringify(psalm2)}],value:''}})}catch(e){console.error('PSALM 2 IMPORT ERROR',e);process.exit(1)}
+st=api.getState();
+ck(st.psalm===2&&st.schemaVersion==='0.4.0','v0.4 annotations for Psalm 2 import successfully');
+ck(st.title==='Psalm 2 test'&&st.segments.length===2,'Psalm-specific v0.4 fields and records are preserved');
+ck(JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm2')).psalm===2,'Psalm 2 is stored under its own local key');
+ck(JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm1')).psalm===1,'Psalm 1 local data remains separate');
+ck(elements.psalmSelect.value==='2'&&elements.verseList.children.length===1,'UI switches to the imported Psalm and renders annotation-only verses');
+ck(!st.validation.issues.some(i=>i.code==='COMPONENT_INVALID_TOKEN'),'unbundled but well-formed Psalm 2 token references are not rejected');
+const psalm150=JSON.parse(JSON.stringify(psalm2).replaceAll('PSA.2.','PSA.150.').replace('"psalm":2','"psalm":150').replace('psalm-2-test','psalm-150-test'));
+try{elements.importInput.onchange({target:{files:[{name:'PSA002.json',content:JSON.stringify(psalm2)},{name:'PSA150.json',content:JSON.stringify(psalm150)}],value:''}})}catch(e){console.error('MULTI-FILE IMPORT ERROR',e);process.exit(1)}
+st=api.getState();
+ck(st.psalm===150&&JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm150')).psalm===150,'multi-file import accepts the complete Psalm 1–150 range');
+const externalFixture=process.env.PSALM_ANNOTATION_FIXTURE;
+if(externalFixture){
+ const attached=fs.readFileSync(externalFixture,'utf8');
+ try{elements.importInput.onchange({target:{files:[{content:attached}],value:''}})}catch(e){console.error('ATTACHED ANNOTATION IMPORT ERROR',e);process.exit(1)}
+ st=api.getState();
+ ck(st.psalm===2&&st.segments.length===24&&st.parallelGroups.length===12,'attached PSA002 v0.4 file imports completely');
+ ck(elements.verseList.children.length===12,'attached PSA002 renders all twelve annotated verses');
+}
+elements.psalmSelect.onchange({target:{value:'1'}});st=api.getState();
+ck(st.psalm===1,'Psalm selector reloads a previously imported Psalm');
 
 const failed=checks.filter(x=>!x[0]);console.log(`PASS ${checks.length-failed.length}/${checks.length}`);checks.filter(x=>x[0]).forEach(x=>console.log('  OK',x[1]));if(failed.length)process.exit(1);console.log('RUNTIME STARTUP + MIGRATION SMOKE TEST PASSED');
