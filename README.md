@@ -4,7 +4,7 @@
 
 The editor keeps Scripture source texts read-only and stores scholarly analysis in a separate annotation layer. The long-term goal is to create a reviewable, reusable dataset for Psalms 1–150 that can support translators, reviewers, consultants, researchers, and a future read-only Selah.
 
-> **Current status:** v0.2 is a development prototype centered on Psalm 1. Its primary purpose is to establish and test the data model, annotation workflow, review model, and validation rules before scaling to the whole Psalter.
+> **Current status:** v0.3 is a development prototype centered on Psalm 1. Its primary purpose is to establish and test the unified Hebrew-first data model, annotation workflow, review model, and validation rules before scaling to the whole Psalter.
 
 ---
 
@@ -201,12 +201,12 @@ Describe larger literary organization separately from line-level parallelism. St
 
 Use explicit statuses such as:
 
-- Draft
-- Annotated
-- Needs review
-- Reviewed
-- Approved
-- Disputed
+- `UNREVIEWED`
+- `AI_PROPOSED`
+- `HUMAN_MODIFIED`
+- `HUMAN_APPROVED`
+- `HUMAN_REJECTED`
+- `NEEDS_DISCUSSION`
 
 Previously approved work remains correctable through revision-safe editing.
 
@@ -246,7 +246,7 @@ The software itself is developed around these engineering principles:
 
 ## How to run locally
 
-Psalms Editor v0.2 is currently a static browser application using HTML, CSS, and JavaScript.
+Psalms Editor v0.3 is currently a static browser application using HTML, CSS, and JavaScript.
 
 ### What do I need to preinstall?
 
@@ -265,7 +265,7 @@ Psalms Editor v0.2 is currently a static browser application using HTML, CSS, an
 - A GitHub account
 - A code editor such as Visual Studio Code
 
-**Node.js and npm are not required to run the current v0.2 application locally.**
+**Node.js and npm are not required to run the current v0.3 application locally.**
 
 ### Option 1 — open directly
 

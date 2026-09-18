@@ -1,0 +1,1575 @@
+{
+  "schemaVersion": "0.3.0",
+  "book": "PSA",
+  "psalm": 1,
+  "revision": {
+    "hebrew": {
+      "version": "UHB v2.1.32",
+      "archiveSha256": "c644cabf0780ae08a473c55c2f7412bf3e1e2ed05a1242b95fba7be70828b5b6"
+    },
+    "tamil": {
+      "label": "Tamil IRV Psalms",
+      "sha256": "4d050110a81eed113e8ad2c8abd1fafc34fb4661bdea83327f301bccffc76f4b"
+    },
+    "english": {
+      "label": "ESV Psalms (user-supplied, local reference)",
+      "sha256": "1491ee7116a4e30fb055651d195eda633a53073816d7862938e8573c2483b40e"
+    },
+    "analysisRunId": "psalm-1-editor-v0.3"
+  },
+  "psalmStatus": "in-progress",
+  "segments": [
+    {
+      "id": "PSA.1.1.L1",
+      "verse": "1",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.1.H001",
+        "PSA.1.1.H002",
+        "PSA.1.1.H003",
+        "PSA.1.1.H004",
+        "PSA.1.1.H005",
+        "PSA.1.1.H006",
+        "PSA.1.1.H007"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T001",
+          "PSA.1.1.T002",
+          "PSA.1.1.T003",
+          "PSA.1.1.T004",
+          "PSA.1.1.T005"
+        ],
+        "text": "பாக்கியமான மனிதன், துன்மார்க்கர்களுடைய ஆலோசனையின்படி நடக்காமலும்,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "Blessed is the man who walks not in the counsel of the wicked,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.1.L2",
+      "verse": "1",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.1.H008",
+        "PSA.1.1.H009",
+        "PSA.1.1.H010",
+        "PSA.1.1.H011"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T006",
+          "PSA.1.1.T007",
+          "PSA.1.1.T008"
+        ],
+        "text": "பாவிகளுடைய வழியில் நிற்காமலும்,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "nor stands in the way of sinners,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.1.L3",
+      "verse": "1",
+      "lineIndex": 3,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.1.H012",
+        "PSA.1.1.H013",
+        "PSA.1.1.H014",
+        "PSA.1.1.H015"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T009",
+          "PSA.1.1.T010",
+          "PSA.1.1.T011",
+          "PSA.1.1.T012"
+        ],
+        "text": "பரியாசக்காரர்கள் உட்காரும் இடத்தில் உட்காராமலும்,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "nor sits in the seat of scoffers;",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.2.L1",
+      "verse": "2",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.2.H003",
+        "PSA.1.2.H004",
+        "PSA.1.2.H005"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.2.T001",
+          "PSA.1.2.T002",
+          "PSA.1.2.T003",
+          "PSA.1.2.T004"
+        ],
+        "text": "யெகோவாவின் வேதத்தில் பிரியமாக இருந்து,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "but his delight is in the law of the Lord,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.2.L2",
+      "verse": "2",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.2.H006",
+        "PSA.1.2.H007",
+        "PSA.1.2.H008",
+        "PSA.1.2.H009"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.2.T005",
+          "PSA.1.2.T006",
+          "PSA.1.2.T007",
+          "PSA.1.2.T008",
+          "PSA.1.2.T009",
+          "PSA.1.2.T010"
+        ],
+        "text": "இரவும் பகலும் அவருடைய வேதத்தில் தியானமாய் இருப்பான்.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "and on his law he meditates day and night.",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.3.L1",
+      "verse": "3",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.3.H001",
+        "PSA.1.3.H003",
+        "PSA.1.3.H004",
+        "PSA.1.3.H005",
+        "PSA.1.3.H006"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T001",
+          "PSA.1.3.T002",
+          "PSA.1.3.T003",
+          "PSA.1.3.T004"
+        ],
+        "text": "அவன் நீரோடை ஓரமாக நடப்பட்டு,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "He is like a tree planted by streams of water",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.3.L2",
+      "verse": "3",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.3.H008",
+        "PSA.1.3.H009",
+        "PSA.1.3.H010"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T005",
+          "PSA.1.3.T006",
+          "PSA.1.3.T007",
+          "PSA.1.3.T008",
+          "PSA.1.3.T009"
+        ],
+        "text": "தன்னுடைய காலத்தில் தன்னுடைய கனியைத் தந்து,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "that yields its fruit in its season,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.3.L3",
+      "verse": "3",
+      "lineIndex": 3,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.3.H001",
+        "PSA.1.3.H002",
+        "PSA.1.3.H011",
+        "PSA.1.3.H012",
+        "PSA.1.3.H013"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T010",
+          "PSA.1.3.T011",
+          "PSA.1.3.T012",
+          "PSA.1.3.T013",
+          "PSA.1.3.T014"
+        ],
+        "text": "இலை உதிராமல் இருக்கிற மரத்தைப்போல இருப்பான்.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "and its leaf does not wither.",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.3.L4",
+      "verse": "3",
+      "lineIndex": 4,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.3.H014",
+        "PSA.1.3.H015",
+        "PSA.1.3.H016",
+        "PSA.1.3.H017"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T015",
+          "PSA.1.3.T016",
+          "PSA.1.3.T017"
+        ],
+        "text": "அவன் செய்வதெல்லாம் வாய்க்கும்.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "In all that he does, he prospers.",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.4.L1",
+      "verse": "4",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.4.H001",
+        "PSA.1.4.H002",
+        "PSA.1.4.H003"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.4.T001",
+          "PSA.1.4.T002"
+        ],
+        "text": "துன்மார்க்கர்களோ அப்படியில்லாமல்,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "The wicked are not so,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.4.L2",
+      "verse": "4",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.4.H006",
+        "PSA.1.4.H007",
+        "PSA.1.4.H008",
+        "PSA.1.4.H009"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.4.T003",
+          "PSA.1.4.T004",
+          "PSA.1.4.T005",
+          "PSA.1.4.T006",
+          "PSA.1.4.T007"
+        ],
+        "text": "காற்றுப் பறக்கடிக்கும் பதரைப் போல் இருக்கிறார்கள்.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "but are like chaff that the wind drives away.",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.5.L1",
+      "verse": "5",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.5.H001",
+        "PSA.1.5.H002",
+        "PSA.1.5.H005",
+        "PSA.1.5.H006"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.5.T001",
+          "PSA.1.5.T002",
+          "PSA.1.5.T003"
+        ],
+        "text": "ஆகையால் துன்மார்க்கர்கள் நியாயத்தீர்ப்பிலும்,",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "Therefore the wicked will not stand in the judgment,",
+        "method": "source-line"
+      },
+      "status": "UNREVIEWED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "not-started"
+    },
+    {
+      "id": "PSA.1.5.L2",
+      "verse": "5",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.5.H003",
+        "PSA.1.5.H004",
+        "PSA.1.5.H007",
+        "PSA.1.5.H008",
+        "PSA.1.5.H009"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.5.T004",
+          "PSA.1.5.T005",
+          "PSA.1.5.T006",
+          "PSA.1.5.T007"
+        ],
+        "text": "பாவிகள் நீதிமான்களின் சபையிலும் நிலைநிற்பதில்லை.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "nor sinners in the congregation of the righteous;",
+        "method": "source-line"
+      },
+      "status": "UNREVIEWED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "not-started"
+    },
+    {
+      "id": "PSA.1.6.L1",
+      "verse": "6",
+      "lineIndex": 1,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.6.H002",
+        "PSA.1.6.H004"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T001",
+          "PSA.1.6.T002",
+          "PSA.1.6.T003",
+          "PSA.1.6.T004"
+        ],
+        "text": "யெகோவா நீதிமான்களின் வழியை அறிந்திருக்கிறார்;",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "for the Lord knows the way of the righteous,",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    },
+    {
+      "id": "PSA.1.6.L2",
+      "verse": "6",
+      "lineIndex": 2,
+      "unitType": "colon",
+      "hebrewTokenIds": [
+        "PSA.1.6.H006",
+        "PSA.1.6.H007",
+        "PSA.1.6.H008"
+      ],
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T005",
+          "PSA.1.6.T006",
+          "PSA.1.6.T007"
+        ],
+        "text": "துன்மார்க்கர்களின் வழியோ அழியும்.",
+        "method": "alignment-projection",
+        "status": "UNREVIEWED",
+        "coverage": 1
+      },
+      "english": {
+        "text": "but the way of the wicked will perish.",
+        "method": "source-line"
+      },
+      "status": "HUMAN_APPROVED",
+      "provenance": {
+        "origin": "machine",
+        "method": "psalms-editor-v0.3"
+      },
+      "revision": 1,
+      "revisions": [],
+      "createdAt": "2026-09-18T08:53:19.151Z",
+      "updatedAt": "2026-09-18T08:53:19.151Z",
+      "legacyStatus": "approved"
+    }
+  ],
+  "parallelGroups": [
+    {
+      "id": "P001",
+      "lineIds": [
+        "PSA.1.1.L1",
+        "PSA.1.1.L2",
+        "PSA.1.1.L3",
+        "PSA.1.6.L2"
+      ],
+      "type": "SYNONYMOUS",
+      "confidence": "HIGH",
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:35:09.137Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:35:09.137Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "P002",
+      "lineIds": [
+        "PSA.1.2.L1",
+        "PSA.1.2.L2"
+      ],
+      "type": "SYNONYMOUS",
+      "confidence": "HIGH",
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:35:44.965Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:35:44.965Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "P003",
+      "lineIds": [
+        "PSA.1.3.L1",
+        "PSA.1.3.L2",
+        "PSA.1.3.L3",
+        "PSA.1.3.L4"
+      ],
+      "type": "SYNTHETIC",
+      "confidence": "HIGH",
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:37:06.645Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:37:06.645Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "P004",
+      "lineIds": [
+        "PSA.1.4.L1",
+        "PSA.1.4.L2"
+      ],
+      "type": "SYNTHETIC",
+      "confidence": "HIGH",
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:37:11.806Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:37:11.806Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "P005",
+      "lineIds": [
+        "PSA.1.6.L1",
+        "PSA.1.6.L2"
+      ],
+      "type": "ANTITHETIC",
+      "confidence": "HIGH",
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:37:33.949Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:37:33.949Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "C001",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H001",
+        "PSA.1.1.H002",
+        "PSA.1.1.H003",
+        "PSA.1.1.H005",
+        "PSA.1.1.H004"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:03:42.400Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:03:42.400Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T001",
+          "PSA.1.1.T002",
+          "PSA.1.1.T005"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C002",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H001",
+        "PSA.1.1.H002",
+        "PSA.1.1.H003",
+        "PSA.1.1.H004",
+        "PSA.1.1.H005"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:05:10.736Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:05:10.736Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T001",
+          "PSA.1.1.T002",
+          "PSA.1.1.T005"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C003",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H006",
+        "PSA.1.1.H007"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:05:51.676Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:05:51.676Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T003",
+          "PSA.1.1.T004"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C004",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H011",
+        "PSA.1.1.H010"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:07:32.020Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:07:32.020Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T008"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C005",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H008",
+        "PSA.1.1.H009"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:07:54.945Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:07:54.945Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T006",
+          "PSA.1.1.T007"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C006",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H012"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:08:52.163Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:08:52.163Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T010"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C007",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H012"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:09:34.144Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:09:34.144Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T010"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C008",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.1.H013",
+        "PSA.1.1.H014",
+        "PSA.1.1.H015"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:10:17.012Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:10:17.012Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.1.T009",
+          "PSA.1.1.T011",
+          "PSA.1.1.T012"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C009",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.2.H001",
+        "PSA.1.2.H002",
+        "PSA.1.2.H003",
+        "PSA.1.2.H004",
+        "PSA.1.2.H005"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:12:15.380Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:12:15.380Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.2.T001",
+          "PSA.1.2.T002",
+          "PSA.1.2.T003"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C010",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.2.H006",
+        "PSA.1.2.H007",
+        "PSA.1.2.H008",
+        "PSA.1.2.H009"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:12:33.528Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:12:33.528Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.2.T004",
+          "PSA.1.2.T005",
+          "PSA.1.2.T006",
+          "PSA.1.2.T007",
+          "PSA.1.2.T010",
+          "PSA.1.2.T009",
+          "PSA.1.2.T008"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C011",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.3.H001",
+        "PSA.1.3.H002",
+        "PSA.1.3.H003",
+        "PSA.1.3.H004",
+        "PSA.1.3.H005",
+        "PSA.1.3.H006"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:13:46.316Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:13:46.316Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T001",
+          "PSA.1.3.T002",
+          "PSA.1.3.T003",
+          "PSA.1.3.T004"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C012",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.3.H008",
+        "PSA.1.3.H009",
+        "PSA.1.3.H010"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:15:54.632Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:15:54.632Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T005",
+          "PSA.1.3.T006",
+          "PSA.1.3.T007",
+          "PSA.1.3.T008",
+          "PSA.1.3.T009"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C013",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.3.H012",
+        "PSA.1.3.H011",
+        "PSA.1.3.H013"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:17:30.192Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:17:30.192Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T010",
+          "PSA.1.3.T011",
+          "PSA.1.3.T012",
+          "PSA.1.3.T013",
+          "PSA.1.3.T014"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C014",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.3.H014",
+        "PSA.1.3.H015",
+        "PSA.1.3.H016",
+        "PSA.1.3.H017"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:18:01.777Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:18:01.777Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T015",
+          "PSA.1.3.T016",
+          "PSA.1.3.T017"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C015",
+      "label": "c",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.3.H014",
+        "PSA.1.3.H015",
+        "PSA.1.3.H016",
+        "PSA.1.3.H017"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:18:43.461Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:18:43.461Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.3.T015",
+          "PSA.1.3.T016",
+          "PSA.1.3.T017"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C016",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.4.H001",
+        "PSA.1.4.H003",
+        "PSA.1.4.H002"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:20:01.520Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:20:01.520Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.4.T001",
+          "PSA.1.4.T002"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C017",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.4.H004",
+        "PSA.1.4.H005",
+        "PSA.1.4.H006",
+        "PSA.1.4.H007",
+        "PSA.1.4.H008",
+        "PSA.1.4.H009"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:20:33.913Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:20:33.913Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.4.T003",
+          "PSA.1.4.T004",
+          "PSA.1.4.T005",
+          "PSA.1.4.T006",
+          "PSA.1.4.T007"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C018",
+      "label": "a",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.6.H003",
+        "PSA.1.6.H002"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:23:55.441Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:23:55.441Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T001",
+          "PSA.1.6.T004"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C019",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.6.H004",
+        "PSA.1.6.H005"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:24:30.337Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:24:30.337Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T002",
+          "PSA.1.6.T003"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C020",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.6.H006",
+        "PSA.1.6.H007"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:24:57.024Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:24:57.024Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T005",
+          "PSA.1.6.T006"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C021",
+      "label": "b",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.6.H006",
+        "PSA.1.6.H007"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:25:13.328Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:25:13.328Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T005",
+          "PSA.1.6.T006"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    },
+    {
+      "id": "C022",
+      "label": "c",
+      "parallelGroupId": null,
+      "hebrewTokenIds": [
+        "PSA.1.6.H008"
+      ],
+      "status": "AI_PROPOSED",
+      "note": "",
+      "createdAt": "2026-08-09T15:25:33.057Z",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:25:33.057Z",
+      "legacyStatus": "annotated",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      },
+      "tamil": {
+        "tokenIds": [
+          "PSA.1.6.T007"
+        ],
+        "text": "",
+        "method": "migration",
+        "status": "AI_PROPOSED",
+        "coverage": 1
+      }
+    }
+  ],
+  "structures": [
+    {
+      "id": "S001",
+      "label": "A",
+      "title": "நீதிமான் துன்மார்கனோடு இரான்",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.1.L1",
+      "endLineId": "PSA.1.1.L3",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:46:35.278Z",
+      "legacyId": "S003",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:46:35.278Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "S002",
+      "label": "B",
+      "title": "நீதிமான் வேதத்தைத் தெரிந்துகொள்வான்",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.2.L1",
+      "endLineId": "PSA.1.2.L2",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:47:16.686Z",
+      "legacyId": "S003",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:47:16.686Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "S003",
+      "label": "C",
+      "title": "நீதிமான் இலை உதிராத மரத்தைப் போன்றவன்",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.3.L1",
+      "endLineId": "PSA.1.3.L4",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:52:00.470Z",
+      "legacyId": "S003",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:52:00.470Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "S004",
+      "label": "C",
+      "title": "துன்மார்க்கன் காற்று விரட்டுகிற பதரைப் போன்றவன்",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.4.L1",
+      "endLineId": "PSA.1.4.L2",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:54:12.562Z",
+      "legacyId": "S004",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:54:12.562Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "S005",
+      "label": "B",
+      "title": "துன்மார்க்கன் நீதிமானோடு நிற்பதில்லை",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.5.L1",
+      "endLineId": "PSA.1.5.L2",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:56:39.962Z",
+      "legacyId": "S005",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:56:39.962Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    },
+    {
+      "id": "S006",
+      "label": "A",
+      "title": "தேவன் நீதிமானை அறிந்துகொள்கிறார்",
+      "type": "CHIASM",
+      "startLineId": "PSA.1.6.L1",
+      "endLineId": "PSA.1.6.L2",
+      "parentId": null,
+      "note": "",
+      "status": "HUMAN_APPROVED",
+      "createdAt": "2026-08-09T15:58:54.054Z",
+      "legacyId": "S006",
+      "revision": 1,
+      "revisions": [],
+      "updatedAt": "2026-08-09T15:58:54.054Z",
+      "legacyStatus": "approved",
+      "provenance": {
+        "origin": "migration",
+        "method": "psalms-editor-migration"
+      }
+    }
+  ],
+  "notes": [],
+  "validation": {
+    "runAt": "2026-09-18T08:53:19.151Z",
+    "issues": []
+  },
+  "migration": {
+    "fromVersion": "0.1.1",
+    "importedAt": "2026-09-18T08:53:19.154Z",
+    "report": [
+      {
+        "kind": "ok",
+        "text": "Preserved 5 parallel groups, 22 components, 6 structures and 15 segments."
+      },
+      {
+        "kind": "warn",
+        "text": "Repaired duplicate legacy structure IDs; all v0.3 structure IDs are unique."
+      },
+      {
+        "kind": "warn",
+        "text": "Cleared 1 ambiguous parent reference(s) caused by duplicate legacy IDs. No structure text was deleted."
+      },
+      {
+        "kind": "warn",
+        "text": "22 component(s) are not attached to a parallel group; none were deleted."
+      },
+      {
+        "kind": "warn",
+        "text": "3 duplicate component pair(s) detected; none were deleted."
+      },
+      {
+        "kind": "warn",
+        "text": "1 conflicting component pair(s) detected; none were deleted."
+      },
+      {
+        "kind": "warn",
+        "text": "1 segment(s) occur in more than one parallel group; none were deleted."
+      },
+      {
+        "kind": "warn",
+        "text": "2 scaffold segment(s) had no saved line status and were imported as Not reviewed."
+      }
+    ]
+  },
+  "updatedAt": "2026-09-18T08:53:19.156Z"
+}

@@ -22,13 +22,15 @@ if(error){console.error('STARTUP ERROR',error);process.exit(1)}
 const checks=[];function ck(x,m){checks.push([!!x,m]);if(!x)console.error('FAIL',m)}
 ck(elements.progressText.textContent!=='Loading…','startup render updates progress');
 ck(elements.verseList.children.length===6,'startup renders six verse cards');
-ck(elements.jsonPreview.textContent.includes('"schemaVersion": "0.2.0"'),'startup dataset is v0.2.0');
+ck(elements.jsonPreview.textContent.includes('"schemaVersion": "0.3.0"'),'startup dataset is v0.3.0');
 // Exercise the actual v0.1.1 import/migration path via the bound file input.
 const sample=fs.readFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.1.1.migration-sample.json'),'utf8');
 try{elements.importInput.onchange({target:{files:[{content:sample}],value:''}})}catch(e){console.error('IMPORT ERROR',e);process.exit(1)}
-const saved=JSON.parse(store.get('tamil-psalms-editor-v0.2-psalm1'));
-fs.writeFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.2.migrated-preview.json'),JSON.stringify(saved,null,2));
-ck(saved.schemaVersion==='0.2.0','import migrates schema to v0.2.0');
+const saved=JSON.parse(store.get('tamil-psalms-editor-v0.3-psalm1'));
+fs.writeFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.3.migrated-preview.json'),JSON.stringify(saved,null,2));
+ck(saved.schemaVersion==='0.3.0','import migrates schema to v0.3.0');
+ck(saved.revision?.analysisRunId&&saved.validation?.issues,'v0.3 revision and validation metadata are present');
+ck(saved.segments.every(s=>s.hebrewTokenIds.every(id=>/^PSA\.1\.(?:front|\d+)\.H\d{3}$/.test(id))),'Hebrew token IDs are canonical');
 ck(saved.parallelGroups.length===5,'import preserves 5 parallel groups');
 ck(saved.components.length===22,'import preserves 22 components');
 ck(saved.structures.length===6,'import preserves 6 structures');
@@ -46,7 +48,7 @@ api.setQuickGroupFields('Antithetic','High','runtime test');
 api.createQuickGroup({preventDefault(){}});
 let st=api.getState();
 ck(st.parallelGroups.length===6,'quick parallel-group creation works after migration');
-ck(st.parallelGroups.some(g=>g.id==='P006'&&g.type==='Antithetic'),'new parallel group receives collision-safe P006 ID');
+ck(st.parallelGroups.some(g=>g.id==='P006'&&g.type==='ANTITHETIC'),'new parallel group receives collision-safe P006 ID');
 api.setActiveGroup('P001');
 api.setTokenSelection(['h-1-1-1'],['t-1-1-1']);
 elements.componentNote.value='runtime component';
@@ -61,7 +63,7 @@ api.setTokenSelection(['h-1-1-1','h-1-1-2'],['t-1-1-1']);
 elements.componentNote.value='corrected approved component';
 api.saveComponentEdit();
 st=api.getState();const edited=st.components.find(c=>c.id==='C023');
-ck(edited.status==='needs-review','editing an approved component resets status to Needs review');
+ck(edited.status==='NEEDS_DISCUSSION','editing an approved component resets status to Needs discussion');
 ck(edited.revision===2&&edited.revisions.length===1,'approved component edit preserves prior revision');
 ck(edited.label==='e'&&edited.hebrewTokenIds.length===2,'component label/token correction is saved');
 
@@ -77,7 +79,15 @@ ck(st.components.filter(c=>c.parallelGroupId===null).length>=beforeDeleteCount-1
 // Resolve one duplicate Hebrew segment assignment by unassigning then assigning it to a single segment.
 api.assignSegmentToken('hebrew','PSA.1.3.L1','h-1-3-1');
 api.assignSegmentToken('hebrew','PSA.1.3.L1','h-1-3-1');
-st=api.getState();const owners=st.segments.filter(s=>s.hebrewTokenIds.includes('h-1-3-1')).map(s=>s.id);
+st=api.getState();const owners=st.segments.filter(s=>s.hebrewTokenIds.includes('PSA.1.3.H001')).map(s=>s.id);
 ck(owners.length===1&&owners[0]==='PSA.1.3.L1','segmentation assignment moves a Hebrew token to one segment');
+
+// Exercise the explicit v0.2 -> v0.3 compatibility path as well.
+const v02=fs.readFileSync(path.join(ROOT,'sample/PSA001.annotations.v0.2.migrated-preview.json'),'utf8');
+try{elements.importInput.onchange({target:{files:[{content:v02}],value:''}})}catch(e){console.error('V0.2 IMPORT ERROR',e);process.exit(1)}
+st=api.getState();
+ck(st.schemaVersion==='0.3.0'&&st.migration?.fromVersion==='0.2.0','v0.2 imports migrate to v0.3');
+ck(st.segments.every(s=>s.status&&s.provenance&&s.tamil&&s.unitType),'v0.2 segment records gain v0.3 base and projection fields');
+ck(st.components.every(c=>c.hebrewTokenIds.every(id=>id.startsWith('PSA.1.'))),'v0.2 component token IDs migrate to canonical IDs');
 
 const failed=checks.filter(x=>!x[0]);console.log(`PASS ${checks.length-failed.length}/${checks.length}`);checks.filter(x=>x[0]).forEach(x=>console.log('  OK',x[1]));if(failed.length)process.exit(1);console.log('RUNTIME STARTUP + MIGRATION SMOKE TEST PASSED');
