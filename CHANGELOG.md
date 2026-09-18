@@ -4,6 +4,8 @@
 - Added separate local storage and selection for each Psalm.
 - Added multi-file annotation import and Psalm-aware export names.
 - Added annotation-only review views when Scripture source text is not bundled.
+- Bundled read-only STEP Bible TAHOT Hebrew text and token metadata for Psalms 1–150.
+- Added reusable USFM/SFM import for read-only Scripture content in any language and text direction.
 
 ## 0.3.0 — 2026-09-18
 - Adopted the unified v0.3 annotation schema and canonical token IDs.

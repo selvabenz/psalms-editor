@@ -5,12 +5,18 @@ ROOT=Path(__file__).resolve().parents[1]
 P=[];F=[]
 def ck(x,m):(P if x else F).append(m)
 r=subprocess.run(['node','--check',str(ROOT/'app.js')],capture_output=True,text=True);ck(r.returncode==0,'app.js JavaScript syntax')
+r=subprocess.run(['node','--check',str(ROOT/'source-manager.js')],capture_output=True,text=True);ck(r.returncode==0,'source-manager.js JavaScript syntax')
 html=(ROOT/'index.html').read_text(encoding='utf8');js=(ROOT/'app.js').read_text(encoding='utf8')
 ids=set(re.findall(r'\bid="([^"]+)"',html));refs=set(re.findall(r"\$\('([^']+)'\)",js));missing=sorted((refs-ids)-{'deleteSegmentBtn','mergeNextBtn','segmentStatusSelect'});ck(not missing,f'all static DOM IDs referenced by app exist: {missing}')
 raw=(ROOT/'data/psalm1.js').read_text(encoding='utf8');data=json.loads(raw.split('=',1)[1].strip().rstrip(';'))
 ck(data['meta']['version']=='0.4.0','data bundle version')
 ck(sorted(k for k in data['hebrew'] if k.isdigit())==list('123456'),'Psalm 1 Hebrew verses 1-6')
 ck(len(data['lines'])==15,'15 scaffold segments')
+tahot_raw=(ROOT/'data/tahot-psalms.js').read_text(encoding='utf8');tahot=json.loads(tahot_raw.split('=',1)[1].strip().rstrip(';'))
+ck(sorted(map(int,tahot['psalms']))==list(range(1,151)),'TAHOT bundle contains Psalms 1-150')
+ck(tahot['meta']['id']=='TAHOT' and tahot['meta']['license']=='CC BY 4.0','TAHOT identity and licence metadata')
+ck(tahot['meta']['tokenCount']==sum(len(v['words']) for p in tahot['psalms'].values() for v in p.values()),'TAHOT token count is internally consistent')
+ck(tahot['psalms']['2']['1']['words'][0]['id']=='PSA.2.1.H001' and tahot['psalms']['2']['1']['words'][0]['text']=='לָ֭מָּה','TAHOT token IDs match annotation IDs')
 old_path=Path('/mnt/data/tamil-psalms-editor-v0.1.1/data/psalm1.js')
 if old_path.exists():
  oldraw=old_path.read_text(encoding='utf8');old=json.loads(oldraw.split('=',1)[1].strip().rstrip(';'))

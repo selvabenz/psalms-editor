@@ -16,6 +16,8 @@ const document={activeElement:null,getElementById(id){return elements[id]||(elem
 const store=new Map();const localStorage={getItem:k=>store.has(k)?store.get(k):null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)};
 global.window=global;global.location={search:'?test=1'};global.document=document;global.localStorage=localStorage;global.navigator={clipboard:{writeText:async()=>{}}};global.confirm=()=>true;global.CSS={escape:s=>s};global.Blob=class{};global.URL={createObjectURL:()=>'',revokeObjectURL:()=>{}};
 global.FileReader=class{readAsText(file){this.result=file.content;if(this.onload)this.onload()}};
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'data/tahot-psalms.js'),'utf8'),{filename:'tahot-psalms.js'});
+vm.runInThisContext(fs.readFileSync(path.join(ROOT,'source-manager.js'),'utf8'),{filename:'source-manager.js'});
 vm.runInThisContext(fs.readFileSync(path.join(ROOT,'data/psalm1.js'),'utf8'),{filename:'psalm1.js'});
 let error=null;try{vm.runInThisContext(fs.readFileSync(path.join(ROOT,'app.js'),'utf8'),{filename:'app.js'})}catch(e){error=e}
 if(error){console.error('STARTUP ERROR',error);process.exit(1)}
@@ -99,8 +101,9 @@ ck(st.psalm===2&&st.schemaVersion==='0.4.0','v0.4 annotations for Psalm 2 import
 ck(st.title==='Psalm 2 test'&&st.segments.length===2,'Psalm-specific v0.4 fields and records are preserved');
 ck(JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm2')).psalm===2,'Psalm 2 is stored under its own local key');
 ck(JSON.parse(store.get('tamil-psalms-editor-v0.4-psalm1')).psalm===1,'Psalm 1 local data remains separate');
-ck(elements.psalmSelect.value==='2'&&elements.verseList.children.length===1,'UI switches to the imported Psalm and renders annotation-only verses');
-ck(!st.validation.issues.some(i=>i.code==='COMPONENT_INVALID_TOKEN'),'unbundled but well-formed Psalm 2 token references are not rejected');
+ck(elements.psalmSelect.value==='2'&&elements.verseList.children.length===12,'UI switches to Psalm 2 and renders all bundled TAHOT verses');
+ck(elements.verseList.children[0].children[0].children[0].children[0].children[0].textContent==='לָ֭מָּה','Psalm 2 renders bundled TAHOT Hebrew text instead of token placeholders');
+ck(!st.validation.issues.some(i=>i.code==='COMPONENT_INVALID_TOKEN'),'well-formed Psalm 2 token references resolve against bundled TAHOT');
 const psalm150=JSON.parse(JSON.stringify(psalm2).replaceAll('PSA.2.','PSA.150.').replace('"psalm":2','"psalm":150').replace('psalm-2-test','psalm-150-test'));
 try{elements.importInput.onchange({target:{files:[{name:'PSA002.json',content:JSON.stringify(psalm2)},{name:'PSA150.json',content:JSON.stringify(psalm150)}],value:''}})}catch(e){console.error('MULTI-FILE IMPORT ERROR',e);process.exit(1)}
 st=api.getState();

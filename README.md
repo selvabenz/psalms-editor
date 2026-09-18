@@ -4,7 +4,7 @@
 
 The editor keeps Scripture source texts read-only and stores scholarly analysis in a separate annotation layer. The long-term goal is to create a reviewable, reusable dataset for Psalms 1–150 that can support translators, reviewers, consultants, researchers, and a future read-only Selah.
 
-> **Current status:** v0.4 accepts annotation files for Psalms 1–150. Psalm 1 includes bundled read-only Scripture sources; other Psalms can be reviewed from their annotation token references and supplied projection text until matching source bundles are added.
+> **Current status:** v0.4 accepts annotation files for Psalms 1–150, bundles read-only TAHOT Hebrew for the whole Psalter, and accepts additional read-only languages through USFM/SFM import.
 
 ---
 
@@ -27,9 +27,8 @@ The application is **not a Bible-text editor**. It does not change the Hebrew, T
 
 The project is designed around these source layers:
 
-- **UHB v2.1.32** — Hebrew Psalms, including token, lemma, Strong's, and morphology information where available
-- **Tamil IRV Psalms** — target-language Scripture text
-- **English Bible** — English reference text
+- **TAHOT** — bundled read-only Hebrew Psalms from STEP Bible, including token IDs, lemma, Strong's, morphology, gloss, text-type, and variant metadata
+- **USFM/SFM Scripture sources** — user-imported read-only content in Tamil, English, or any other language
 - **Hebrew–Tamil alignment data** — existing alignment information that can be imported, checked, and extended
 
 All annotation work belongs to the Psalms Editor dataset, not to the Scripture source files.
@@ -46,7 +45,7 @@ The poetic structure of the Psalm is established from the Hebrew text first. Tam
 
 ### Scripture text remains immutable
 
-UHB, Tamil IRV, and the English Bible are read-only resources. Segmentation, parallelism, alignment, structure, notes, and review decisions are stored separately.
+Bundled TAHOT Hebrew and every imported USFM/SFM source are read-only resources. Segmentation, parallelism, alignment, structure, notes, and review decisions are stored separately.
 
 ### Human review remains authoritative
 
@@ -103,7 +102,7 @@ Repository maintainers should additionally be comfortable with Git/GitHub and ba
 The recommended annotation workflow is:
 
 1. **Open the Psalm** and confirm that the Hebrew, Tamil IRV, English Bible, and available alignment data are present.
-2. **Review Hebrew segmentation** and establish the poetic cola / lines without editing the UHB source text.
+2. **Review Hebrew segmentation** and establish the poetic cola / lines without editing the bundled TAHOT source text.
 3. **Map Tamil expressions** to the relevant Hebrew units using many-to-many alignment where necessary.
 4. **Create parallel groups** from two or more poetic segments.
 5. **Classify the relationship**, for example:
@@ -126,6 +125,8 @@ The recommended annotation workflow is:
 13. **Export the annotation JSON** for version control, review, research, or use in a read-only Selah.
 
 Use **Import annotations** to select one or multiple schema v0.4 JSON files for Psalms 1–150. Each Psalm is kept in a separate local workspace and can be reopened from the Psalm selector. When a matching Scripture source bundle is unavailable, the editor shows annotation token references and any Tamil/English projection text supplied in the file.
+
+Use **Add USFM/SFM** to add a read-only Psalms translation in any language. Supply a language code, name, source label, text direction, and one or more Psalms USFM/SFM files. The importer reads `\id PSA`, `\c`, `\v`, poetry and paragraph continuation markers, Psalm titles, and character styles while removing notes and cross-references from displayed Scripture text. Imported languages are stored separately from annotation JSON and can be removed from Source information without changing annotations.
 
 ---
 
@@ -160,7 +161,7 @@ Psalms Editor does **not** guarantee:
 - that every Psalm will use the same parallelism pattern
 - that AI suggestions, if added, are correct without review
 - automatic permission to redistribute any Scripture source text
-- modification or correction of Tamil IRV, UHB, or the English Bible source files
+- modification or correction of bundled TAHOT or imported USFM/SFM source files
 
 The editor records and manages scholarly judgments; it does not turn interpretive decisions into unquestionable facts.
 
@@ -172,7 +173,7 @@ Psalms Editor uses a layered methodology.
 
 ### 1. Source layer
 
-Keep UHB, Tamil IRV, the English Bible, and source alignment data read-only. Preserve source identity and provenance wherever possible.
+Keep TAHOT, imported translations, and source alignment data read-only. Preserve source identity and provenance wherever possible.
 
 ### 2. Segmentation layer
 
